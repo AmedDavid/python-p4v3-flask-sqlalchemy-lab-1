@@ -1,10 +1,16 @@
 # server/app.py
 #!/usr/bin/env python3
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from server.models import db, Earthquake
+
 from flask import Flask, make_response
 from flask_migrate import Migrate
 
-from models import db, Earthquake
+# from models import db, Earthquake
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
