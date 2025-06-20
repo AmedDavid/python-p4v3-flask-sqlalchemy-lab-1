@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-# server/seed.py
 
-from app import app
-from models import db, Earthquake
+import sys
+from pathlib import Path
+# Add project root to sys.path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from server.app import app
+from server.models import db, Earthquake
 
 with app.app_context():
-
     # Delete all rows in the "earthquakes" table
     Earthquake.query.delete()
 
